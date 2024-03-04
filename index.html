@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reciept</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="m-4">
+    <section class="max-w-5xl mx-auto border-4 border-red-500 p-4 relative">
+        <img class="w-2/12 absolute top-4 left-4" src="/assets/logo/Untitled-3rd.png" alt="">
+        <div class="text-center text-sm flex-1">
+            <h1 class="text-3xl font-semibold">Next Web Service</h1>
+            <h3>House# 433, Flat#3B, Road#30, New DOSH Mohakhaki, Dhaka</h3>
+            <p>Phone: +880963822555</p>
+            <p>Mobile: +880963822555</p>
+            <p>Email: info@relianceeducation.net</p>
+            <p>Website: info@relianceeducation.net</p>
+            <button id="modal" class="coursor-pointer hover:text-red-700 text-3xl font-semibold"
+                onclick="my_modal_1.showModal()">
+                Cash Reciept
+            </button>
+        </div>
+        </div>
+        <div class="flex justify-between mt-2">
+            <h1 class="mb-2">Cash Reciept#: DHA<span id="recieptID"></span></h1>
+            <dialog id="my_modal_1" class="modal">
+                <div class="modal-box px-0">
+                    <div>
+                        <h1 class="mx-5 text-2xl font-semibold">Edit Invoice</h1>
+                        <div class="h-[1px] w-full bg-blue-200 mt-5"></div>
+
+                        <form class="mx-5 space-y-6 my-5" id="myForm" method="dialog">
+                            <div>
+                                <h3>Reciept No</h3>
+                                <input type="number" name="id" class="border-[1px] rounded-sm p-2 w-full" required>
+                            </div>
+                            <div>
+                                <h3>Date</h3>
+                                <input type="date" name="date" class="border-[1px] rounded-sm p-2 w-full" required">
+                            </div>
+                            <div>
+                                <h3>Client Name</h3>
+                                <input type="text" name="clientName" class="border-[1px] rounded-sm p-2 w-full"
+                                    required>
+                            </div>
+                            <div>
+                                <h3>Total Amount</h3>
+                                <input type="number" name="totalAmount" class="border-[1px] rounded-sm p-2 w-full"
+                                    required>
+                            </div>
+                            <div>
+                                <h3>Recieve Amount</h3>
+                                <input type="number" name="recieveAmount" class="border-[1px] rounded-sm p-2 w-full"
+                                    required>
+                            </div>
+                            <div>
+                                <select name="card" id="paySystem" class="border-2 p-2 w-full">
+                                    <option value="Cash">Cash</option>
+                                    <option value="Card">Card</option>
+                                    <option value="Others">Others</option>
+                                </select>
+                            </div>
+                            <div class="h-[1px] w-full bg-blue-200"></div>
+                            <button type="submit" class="btn bg-blue-500 text-white rounded-md absolute right-24">
+                                Submit
+                            </button>
+
+                        </form>
+                        <div class="modal-action">
+                            <form method="dialog">
+                                <button id="closeBtn" class="btn bg-slate-200 rounded-md mr-5">Close</button>
+                            </form>
+                        </div>
+                    </div>
+            </dialog>
+            <h1>Date: <span id="date"></span> </h1>
+        </div>
+        </div>
+
+        <div class="flex font-semibold">
+            <h2>Cash Reciveed from</h2>
+            <div class="border-b border-black flex-1 text-center" id="name"></div>
+            <h2>of$</h2>
+            <div id="recieveAmount" class="border-b border-black flex-1 text-center"></div>
+        </div>
+        <div class="flex mt-2 font-semibold">
+            <h2>For</h2>
+            <div class="border-b border-black flex-1"></div>
+        </div>
+        <div class="flex justify-end mt-4">
+            <div class="w-2/5 relative">
+                <p class="flex justify-between border px-2 py-1">Total Amount: <span" id="totalAmount"></span></p>
+                <p class="flex justify-between border-b border-r border-l px-2 py-1">Amount Recieved: <span
+                        id="recieveAmount2"></span></p>
+                <p class="flex justify-between border-b border-r border-l px-2 py-1">Balance Due: <span
+                        id="BalanceDue"></span></p>
+                <div class="h-full w-[1px] bg-base-300 absolute top-0 right-32"></div>
+            </div>
+        </div>
+
+        <div class="flex justify-between items-end mt-10">
+            <p class="border-t border-t-[1px] border-gray-700 w-2/12 text-center">Signed By Authorized:</p>
+            <p class="border-t border-t-[1px] mr-10 border-gray-700 w-2/12 text-center">Signed By Customer:</p>
+            <p>Payment Recieve in: <span id="paySystemField" class="font-semibold"></span></p>
+        </div>
+    </section>
+
+    <!-- Client Copy -->
+
+    <section class="max-w-5xl mx-auto border-4 border-blue-500 p-4 mt-4 relative">
+        <img class="w-2/12 absolute top-4 left-4 " src="/assets/logo/Untitled-3rd.png" alt="">
+        <div class="text-center text-sm flex-1">
+            <h1 class="text-3xl font-semibold">Next Web Service</h1>
+            <h3>House# 433, Flat#3B, Road#30, New DOSH Mohakhaki, Dhaka</h3>
+            <p>Phone: +880963822555</p>
+            <p>Mobile: +880963822555</p>
+            <p>Email: info@relianceeducation.net</p>
+            <p>Website: info@relianceeducation.net</p>
+            <h1 class="text-3xl font-semibold">Cash Reciept</h1>
+        </div>
+        <div class="flex justify-between mt-2">
+            <h1 class="mb-2">Cash Reciept#: DHA<span id="recieptID"></span></h1>
+
+            <h1>Date: <span id="dateClient"></span> </h1>
+        </div>
+        </div>
+
+        <div class="flex font-semibold">
+            <h2>Cash Reciveed from</h2>
+            <div class="border-b border-black flex-1 text-center" id="nameClient"></div>
+            <h2>of$</h2>
+            <div id="recieveAmountClient" class="border-b border-black flex-1 text-center"></div>
+        </div>
+        <div class="flex mt-2 font-semibold">
+            <h2>For</h2>
+            <div class="border-b border-black flex-1"></div>
+        </div>
+        <div class="flex justify-end mt-4">
+            <div class="w-2/5 relative">
+                <p class="flex justify-between border px-2 py-1">Total Amount: <span" id="totalAmountClient"></span></p>
+                <p class="flex justify-between border-b border-r border-l px-2 py-1">Amount Recieved: <span
+                        id="recieveAmountClient2"></span></p>
+                <p class="flex justify-between border-b border-r border-l px-2 py-1">Balance Due: <span
+                        id="BalanceDueClient"></span></p>
+                <div class="h-full w-[1px] bg-base-300 absolute top-0 right-32"></div>
+            </div>
+        </div>
+
+        <div class="flex justify-between items-end mt-10">
+            <p class="border-t border-t-[1px] border-gray-700 w-2/12 text-center">Signed By Authorized:</p>
+            <p class="border-t border-t-[1px] mr-10 border-gray-700 w-2/12 text-center">Signed By Customer:</p>
+            <p>Payment Recieve in: <span id="paySystemFieldClient" class="font-semibold"></span></p>
+        </div>
+    </section>
+
+
+    <script src="index.js"></script>
+</body>
+
+</html>
